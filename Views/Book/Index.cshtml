@@ -1,0 +1,45 @@
+﻿@model List<Book>
+<partial name="_Notification" />
+<!-- Include Font Awesome CSS in your HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<h1>BOOK DEATAIL</h1>
+<a asp-action="Create" asp-controller="Book" class="btn btn-dark">CREATE NEW BOOK</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model){
+        <tr>
+            <td >@obj.Id</td>
+            <td>@obj.Author</td>
+            <td>@obj.Title</td>
+            <td>@obj.Description</td>
+            <td>
+                    <a asp-action="Edit" asp-controller="Book" asp-route-Id="@obj.Id" class="btn btn-primary">
+                        <i class="fas fa-pencil-alt"></i> Edit
+                    </a>
+            </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="Book" asp-route-Id="@obj.Id" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                </td>
+                
+
+                
+                
+
+        </tr>
+        }
+        </tbody>
+  
+
+</table>
